@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boggle Game</title>
+  <link rel="icon" href="./recursos/multimedia/moneda-.ico">
+  <link rel="stylesheet" href="css/normalyze.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <h1>Boogle</h1>
+    <p>Trabajo final de Desarrollo y arquitecturas web</p>
+  </header>
+
+  <!-- Barra de navegación -->
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Acerca de</a></li>
+      <li><a href="#">Juego</a></li>
+    </ul>
+  </nav>
+
+<main>
+  <!-- Sección de contenido -->
+  <div class="content-section">
+    <!-- Contenedor dividido en dos -->
+    <div class="content-container">
+      <h2>Acerca de</h2>
+      <p>Esta página web es el proyecto final de la materia "Desarrollo y arquitectura web".</p>
+      <h3>Integrantes del grupo:</h3>
+      <div class="chip">
+        <img src="./recursos/multimedia/img_avatar_femenino.png" alt="">
+        Belén Ramos
+      </div>
+      <div class="chip">
+        <img src="./recursos/multimedia/img_avatar_masculino.png" alt="">
+        Pablo Hernandez
+      </div>
+    </div>
+    <div class="content-container">
+      <h2>Juego</h2>
+      <div class="table">
+        <div class="column">
+          <button class="accordion">Reglas</button>
+          <div class="panel">
+              <ol>
+                  <li><strong>Duración del Juego:</strong> El juego se juega típicamente durante tres rondas, cada una de tres minutos de duración.</li>
+                  <li><strong>Formación de Palabras:</strong> Las palabras deben estar formadas por al menos tres letras contiguas y solo se pueden usar letras adyacentes en el tablero.</li>
+                  <li><strong>Puntuación:</strong> Las palabras se puntúan en función de su longitud y dificultad. Las palabras más largas y menos comunes otorgan más puntos.</li>
+                  <li><strong>Palabras Válidas:</strong> Solo se permiten palabras que se encuentren en un diccionario predeterminado y que no sean nombres propios, conjugaciones verbales o abreviaturas.</li>
+                  <li><strong>Revisión de Palabras:</strong> Al final de cada ronda, se comparan las palabras encontradas por los jugadores. Solo las palabras únicas válidas otorgan puntos.</li>
+                  <li><strong>Ganador:</strong> El jugador con la puntuación total más alta después de las tres rondas es el ganador.</li>
+              </ol> 
+          </div>
+        </div>
+        <div class="column">
+          <div id="game-container">
+            <div id="controls">
+              <label for="language">Lenguaje:</label>
+              <select id="language">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+              </select>
+              <label for="board-size">Tamaño de tablero:</label>
+              <select id="board-size">
+                <option value="4">4x4</option>
+                <option value="5">5x5</option>
+                <option value="6">6x6</option>
+              </select>
+              <label for="timer">Temporizador (segundos):</label>
+              <input type="number" id="timer" min="30" max="300" value="60">
+              <button id="start">Comenzar juego</button>
+            </div>
+            <div id="board"></div>
+            <div id="word-container">
+                <p id="current-word"></p>
+              </div>        
+            </div>
+        </div>
+        <div class="column">
+          <!-- Tabla -->
+          <div id="word-list">
+            <h2>Palabras encontradas</h2>
+            <table id="words-table">
+              <thead>
+                <tr>
+                  <th>Palabra</th>
+                  <th>Puntaje</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>Derechos de autor 2024 - Belén Ramos, Pablo Hernandez</p>
+  </footer>
+  <script src="js/game.js"></script>
+</body>
+</html>

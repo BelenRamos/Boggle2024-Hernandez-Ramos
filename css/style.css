@@ -1,0 +1,296 @@
+/* Estilos generales */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #161b22;
+  }
+
+/* Estilos para el encabezado */
+
+header {
+  background-color: rgb(13, 17, 23);
+  color: #fff;
+  padding: 60px 0;
+  text-align: center;
+  width: 100%;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+header p {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+/* Estilos para la barra de navegación */
+
+nav {
+  background-color: #6e40c9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: -webkit-sticky; /* Para Safari */
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Asegura que la barra de navegación esté por encima de otros elementos */
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  display: block;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+}
+
+nav ul li a:hover {
+  background-color: #3c1e70;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 40px; /* Ajusta según la altura del footer */
+  margin-bottom: 60px; /* Ajusta según la altura del footer */
+}
+
+.content-section {
+  margin-top: 30px;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.content-container {
+  width: 95%;
+  padding: 0px 20px 20px 20px;
+  margin: 10px auto;
+  background: rgb(234, 234, 234);
+  border-radius: 8px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.6px);
+  -webkit-backdrop-filter: blur(6.6px);
+  border: 1px solid rgba(40, 40, 40, 0.26);
+  }
+
+@media all and (max-width: 800px) {
+  .content-container {
+    width: 100%;
+  }
+}
+
+.table{
+  display: flex;
+    flex-wrap: wrap;
+}
+
+.column {
+  flex: 1;
+  min-width: 200px; /* Establece un ancho mínimo para cada columna */
+  margin: 2px; /* Espaciado entre las columnas */
+  padding: 5px;
+  
+}
+
+/* Estilos para el pie de página */
+
+footer {
+  background-color: #0d1117;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.chip {
+  display: inline-flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0 25px;
+  height: 60px;
+  font-size: 24px;
+  line-height: 60px;
+  border-radius: 25px;
+  background-color: #6e40c9;
+  color: #ffffff;
+  margin: 10px 10px 10px 20px;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -50px;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.accordion {
+  background-color: #e2e2e2;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 24px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  color: #343333;
+  background-color: #c8c8c8;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #444;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+  #game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #board {
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-gap: 5px;
+    margin-top: 20px;
+  }
+  
+  #word-list {
+    text-align: center;
+  }
+  
+  #words-table {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  #words-table th, #words-table td {
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  #words-table th {
+    background-color: #f2f2f2;
+  }
+  
+  #start {
+    margin-left: 10px;
+  }
+  
+  
+  /* Estilo para las celdas del tablero */
+.letter {
+    border: 1px solid #000;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+  }
+  
+  /* Estilo para las celdas seleccionadas */
+  .selected {
+    background-color: #ffffcc; /* Amarillo claro */
+  }
+  
+  /* Estilo para las celdas seleccionables */
+  .selectable {
+    background-color: #ccffcc; /* Verde claro */
+    cursor: pointer;
+  }
+  
+  /* Estilo para la última celda seleccionada */
+  .last-selected {
+    background-color: orange; /* Naranja */
+  }
+  
+
+
+
+  #controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+label {
+    margin-right: 10px;
+    color: #000000; /* Violeta */
+}
+
+select, input[type="number"] {
+    padding: 8px;
+    border-radius: 15px; /* Bordes redondeados */
+    border: 2px solid #6a0dad; /* Violeta */
+    margin-right: 10px;
+}
+
+#game-container button {
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: none;
+    background-color: #6a0dad;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#game-container button:hover {
+    background-color: #4c0774; /* Violeta oscuro */
+}
+
+option {
+    background-color: #f0f0f0;
+    color: #4c4c4c; /* Violeta */
+}
+
+option:hover {
+    background-color: #ababab; /* Gris claro */
+    color: #4c0774; /* Violeta oscuro */
+}
