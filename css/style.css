@@ -294,3 +294,8 @@ option:hover {
     background-color: #ababab; /* Gris claro */
     color: #4c0774; /* Violeta oscuro */
 }
+
+#timer-display {
+  margin-top: 10px; 
+  
+}
