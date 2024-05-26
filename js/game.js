@@ -22,30 +22,80 @@ async function loadJSON(file) {
 }
 
 // Function to generate the board with letters from words
-function generateBoard(size, letters) {
+function generateBoard(size, words) {
   const board = document.getElementById('board');
   board.innerHTML = '';
   board.style.gridTemplateColumns = `repeat(${size}, 1fr)`; // Set the number of columns dynamically
 
-  // Shuffle the letters to randomize their positions
-  shuffleArray(letters);
+  // Define min and max segment sizes (adjust according to your preference)
+  const minSegmentSize = Math.floor(words.length * 0.1);
+  const maxSegmentSize = Math.floor(words.length * 0.3);
+
+  const letters = getRandomLetters(size * size, words, minSegmentSize, maxSegmentSize);
 
   console.log(`Generating board with size ${size}x${size} and ${letters.length} letters.`);
 
-  for (let i = 0; i < size * size; i++) {
-    const letter = letters[i] || generateRandomLetter(); // Use a random letter if we run out of provided letters
+  // Initialize an empty array to store the cells
+  const cells = [];
+
+  // Create cells for each letter
+  letters.forEach(letter => {
     const div = document.createElement('div');
     div.classList.add('letter');
     div.textContent = letter;
     div.addEventListener('click', function() {
       selectCell(this); // Call selectCell() when the cell is clicked
     });
-    board.appendChild(div);
-  }
+    cells.push(div); // Add the cell to the array
+  });
+
+  // Append the cells to the board
+  cells.forEach(cell => {
+    board.appendChild(cell);
+  });
 
   console.log("Board generated successfully.");
+
+  console.log("Random letters:", letters.join(', ')); // Print random letters for debugging
 }
 
+function getRandomLetters(count, words, minSegmentSize, maxSegmentSize) {
+  const randomLetters = [];
+  const totalWords = words.length;
+
+  // Generate random start index for the segment
+  const initSegmento = Math.floor(Math.random() * totalWords);
+  
+  // Calculate the maximum end index for the segment
+  const maxEndIndex = Math.min(initSegmento + Math.floor(Math.random() * (maxSegmentSize - minSegmentSize)), totalWords);
+
+  // Calculate the final end index for the segment
+  const finSegmento = Math.min(initSegmento + maxEndIndex, totalWords);
+
+  // Select random words within the segment
+  for (let i = initSegmento; i < finSegmento; i++) {
+    const randomWord = words[i];
+    console.log("Random word:", randomWord); // Print random word for debugging
+    const randomLetter = randomWord[Math.floor(Math.random() * randomWord.length)];
+    randomLetters.push(randomLetter);
+  }
+
+  // Fill remaining count with letters from random words in the remainder of the list
+  const remainingCount = count - randomLetters.length;
+  if (remainingCount > 0) {
+    for (let i = 0; i < remainingCount; i++) {
+      const randomWord = words[Math.floor(Math.random() * totalWords)];
+      console.log("Random word:", randomWord); // Print random word for debugging
+      const randomLetter = randomWord[Math.floor(Math.random() * randomWord.length)];
+      randomLetters.push(randomLetter);
+    }
+  }
+
+  return randomLetters;
+}
+
+
+//Funcion principal
 // Event listener for Start Game button
 document.getElementById('start').addEventListener('click', async function() {
   const size = parseInt(document.getElementById('board-size').value);
@@ -57,7 +107,7 @@ document.getElementById('start').addEventListener('click', async function() {
     return;
   }
 
-  let wordsFile;
+  let wordsFile; //Depende si de español o de ingles
   if (language === 'en') {
     wordsFile = 'english-dictionary/palabras.json';
   } else if (language === 'es') {
