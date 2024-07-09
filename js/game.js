@@ -1,3 +1,5 @@
+let dictionary = [];
+
 // Function to shuffle an array
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -79,6 +81,7 @@ document.getElementById('start').addEventListener('click', async function() {
 
   const data = await loadJSON(wordsFile);
   if (data && Array.isArray(data)) {
+    dictionary = data; // Save the dictionary for later use
     const letters = getRandomLetters(size * size, data);
     generateBoard(size, letters);
 
@@ -191,7 +194,7 @@ function calculateScore(word) {
 // Function to check if a word is valid
 function isValidWord(word) {
   const length = word.length;
-  const isValid = length >= 3 && length <= 16 && !foundWords.some(entry => entry.word === word);
+  const isValid = length >= 3 && length <= 16 && dictionary.includes(word) && !foundWords.some(entry => entry.word === word);
   if (isValid) {
     updateWordList(word);
   }
@@ -221,4 +224,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
   console.log("Page loaded and accordions initialized.");
 });
-
