@@ -1,9 +1,9 @@
 import json
 
 # Ruta del archivo de texto
-ruta_txt = r'C:\Users\belen\OneDrive\Documentos\Boggle2024\english-dictionary\palabras.txt'
+ruta_txt = r'C:\Users\ale32\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Documents\Belen\Boggle\english-dictionary\palabrasIngles_limpias.txt'
 # Ruta del archivo JSON
-ruta_json = r'C:\Users\belen\OneDrive\Documentos\Boggle2024\english-dictionary\palabras.json'
+ruta_json = r'C:\Users\ale32\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Documents\Belen\Boggle\english-dictionary\palabrasIngles.json'
 
 # Leer el archivo de texto
 with open(ruta_txt, 'r') as file:
