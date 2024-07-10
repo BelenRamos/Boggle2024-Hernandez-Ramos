@@ -1,14 +1,15 @@
 /* Estilos generales */
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #161b22;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Estilos para el encabezado */
-
 header {
   background-color: rgb(13, 17, 23);
   color: #fff;
@@ -29,7 +30,6 @@ header p {
 }
 
 /* Estilos para la barra de navegación */
-
 nav {
   background-color: #6e40c9;
   display: flex;
@@ -67,6 +67,7 @@ nav ul li a:hover {
 }
 
 main {
+  flex: 1; /* Permite que el contenido principal crezca y ocupe el espacio disponible */
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 40px; /* Ajusta según la altura del footer */
@@ -112,15 +113,13 @@ main {
 }
 
 /* Estilos para el pie de página */
-
 footer {
   background-color: #0d1117;
   color: #fff;
   text-align: center;
   padding: 10px 0;
-  position: fixed;
   width: 100%;
-  bottom: 0;
+  margin-top: auto; /* Asegura que el footer se quede en la parte inferior si el contenido es corto */
 }
 
 .chip {
